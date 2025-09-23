@@ -1,0 +1,18 @@
+alias c="clear"
+alias e="exit"
+alias task="go-task"
+
+alias fetch="fastfetch --config examples/13"
+
+alias lzg="lazygit"
+alias lzd="lazydocker"
+alias gst="git status"
+
+alias ls="eza -l --icons --color=always --group-directories-first"
+alias ll="eza -alF --icons --color=always --group-directories-first"
+
+alias fzn="fzf --preview='bat --color=always {}'"
+
+alias artisan="php artisan"
+
+alias mkdir="mkdir -pv"

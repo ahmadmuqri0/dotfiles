@@ -1,0 +1,22 @@
+gui:
+  # Use the mocha catppuccin theme
+  theme:
+    activeBorderColor:
+      - "#ebcb8b"
+      - bold
+    inactiveBorderColor:
+      - "#81a1c1"
+    optionsTextColor:
+      - "#81a1c1"
+    selectedLineBgColor:
+      - "#434c5e"
+    cherryPickedCommitBgColor:
+      - "#d8dee9"
+    cherryPickedCommitFgColor:
+      - "#81a1c1"
+    unstagedChangesColor:
+      - "#bf616a"
+    defaultFgColor:
+      - "#d8dee9"
+    searchingActiveBorderColor:
+      - "#ebcb8b"
