@@ -7,8 +7,8 @@ A collection of configuration files for a modern development environment featuri
 1. **Clone the repository**
 
    ```bash
-   git clone <your-repo-url> ~/dotfiles
-   cd ~/dotfiles
+   git clone git@github.com:ahmadmuqri0/dotfiles.git $HOME/.local/share/dotfiles
+   cd $HOME/.local/share/dotfiles
    ```
 
 2. **Install GNU Stow** (if not already installed)
