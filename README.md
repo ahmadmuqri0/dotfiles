@@ -4,31 +4,38 @@ A collection of configuration files for a modern development environment featuri
 
 ## Quick Setup
 
-1. **Clone the repository**
+**Clone the repository**
 
-   ```bash
-   git clone git@github.com:ahmadmuqri0/dotfiles.git $HOME/.local/share/dotfiles
-   cd $HOME/.local/share/dotfiles
-   ```
+```bash
+git clone git@github.com:ahmadmuqri0/dotfiles.git $HOME/.local/share/dotfiles
+cd $HOME/.local/share/dotfiles
+```
 
-2. **Install GNU Stow** (if not already installed)
+**Install GNU Stow** (if not already installed)
 
-   ```bash
-   # On Arch Linux
-   sudo pacman -S stow
-   ```
+```bash
+# On Arch Linux
+sudo pacman -S stow
+```
 
-3. **Symlink configurations**
+**Clone TPM for tmux** (if not already installed)
 
-   ```bash
-   stow .
-   ```
+```bash
+git clone https://github.com/tmux-plugins/tpm.git $HOME/.tmux/plugins/tpm
+```
 
-4. **Install dependencies**
-   - **Font**: JetBrains Mono Nerd Font
-   - **Terminal**: Alacritty
-   - **Shell**: Zsh
-   - **Tools**: git, neovim, lazygit, eza, bat, fzf, zoxide, starship
+**Symlink configurations**
+
+```bash
+stow .
+```
+
+**Install dependencies**
+
+- **Font**: JetBrains Mono Nerd Font
+- **Terminal**: Alacritty
+- **Shell**: Zsh
+- **Tools**: git, neovim, lazygit, eza, bat, fzf, zoxide, starship
 
 That's it! Your dotfiles are now active. Restart your terminal or source your shell configuration to see the changes.
 
