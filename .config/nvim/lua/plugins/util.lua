@@ -1,6 +1,25 @@
 return {
   { "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" },
   {
+    "folke/snacks.nvim",
+    opts = {
+      picker = {
+        sources = {
+          files = {
+            hidden = true,
+            ignored = true,
+            exclude = { "node_modules", ".git", "vendor" },
+          },
+          explorer = {
+            hidden = true,
+            ignored = true,
+            exclude = { "node_modules", ".git", "vendor" },
+          },
+        },
+      },
+    },
+  },
+  {
     "jake-stewart/multicursor.nvim",
     branch = "1.0",
     config = function()
