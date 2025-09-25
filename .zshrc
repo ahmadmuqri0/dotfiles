@@ -66,3 +66,6 @@ zstyle ":fzf-tab:complete:__zoxide-z:*" fzf-preview "ls --color $realpath"
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
+# bun completions
+[ -s "/home/muqri/.bun/_bun" ] && source "/home/muqri/.bun/_bun"
