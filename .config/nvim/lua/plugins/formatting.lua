@@ -5,7 +5,7 @@ return {
   cmd = "ConformInfo",
   opts = {
     formatters_by_ft = {
-      php = {},
+      php = { "pint" },
       blade = { "prettier" },
       go = { "gofumpt", "goimports" },
     },
