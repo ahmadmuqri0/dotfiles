@@ -8,8 +8,8 @@ map({ "n", "v", "x" }, "H", "_", { noremap = true, silent = true, desc = "Naviga
 map({ "n", "v", "x" }, "L", "$", { noremap = true, silent = true, desc = "Navigate To End Of The Line" })
 
 -- Paste without ovewritting
-map("v", "p", '"_dp', { noremap = true, silent = true })
-map("v", "P", '"_dP', { noremap = true, silent = true })
+map({ "v", "x" }, "p", '"_dp', { noremap = true, silent = true })
+map({ "v", "x" }, "P", '"_dP', { noremap = true, silent = true })
 
 -- Redo
 map("n", "U", "<C-r>", { desc = "Redo" })
