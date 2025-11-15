@@ -11,11 +11,12 @@ git clone git@github.com:ahmadmuqri0/dotfiles.git $HOME/.local/share/dotfiles
 cd $HOME/.local/share/dotfiles
 ```
 
-**Install GNU Stow** (if not already installed)
+**Install Deps** (if not already installed)
 
 ```bash
 # On Arch Linux
-sudo pacman -S stow
+sudo pacman -S stow zsh fzf neovim ttf-jetbrains-mono-nerd lazygit eza zoxide go npm noctalia-shell mpv nautilus xdg-desktop-portal-hyprland wl-clipboard tela-circle-icon-theme-all loupe cliphist gnome-software
+paru -S python-pywalfox
 ```
 
 **Clone TPM for tmux** (if not already installed)
@@ -33,7 +34,7 @@ stow .
 **Install dependencies**
 
 - **Font**: JetBrains Mono Nerd Font
-- **Terminal**: Alacritty
+- **Terminal**: Alacritty, Kitty
 - **Shell**: Zsh
 - **Tools**: git, neovim, lazygit, eza, bat, fzf, zoxide, starship
 
