@@ -185,7 +185,7 @@ if [ -d "$THEME_FONTS_DIR" ]; then
   fonts_exist=true
   for font in "$THEME_FONTS_DIR"/*; do
     font_name=$(basename "$font")
-    if [ ! -f "/usr/share/fonts/$font_name" ]; then
+    if [ ! -f "/usr/share/fonts/$font_name" ] && [ ! -d "/usr/share/fonts/$font_name" ]; then
       fonts_exist=false
       break
     fi
@@ -210,32 +210,39 @@ else
 fi
 
 ### Configure SDDM theme
-if confirm "Configure SDDM to use Artemis theme?"; then
-  if [ "$DRY_RUN" = false ]; then
-    log "Setting SDDM theme configuration..."
-    echo "[Theme]
-Current=sddm-artemis" | sudo tee /etc/sddm.conf >/dev/null
-  else
-    warn "(dry-run) Would write to /etc/sddm.conf"
-  fi
+if [ -f "/etc/sddm.conf" ] && grep -q "Current=sddm-artemis" /etc/sddm.conf 2>/dev/null; then
+  log "SDDM theme already configured."
 else
-  warn "Skipping SDDM theme configuration."
+  if confirm "Configure SDDM to use Artemis theme?"; then
+    if [ "$DRY_RUN" = false ]; then
+      log "Setting SDDM theme configuration..."
+      echo "[Theme]
+Current=sddm-artemis" | sudo tee /etc/sddm.conf >/dev/null
+    else
+      warn "(dry-run) Would write to /etc/sddm.conf"
+    fi
+  else
+    warn "Skipping SDDM theme configuration."
+  fi
 fi
 
 ### Configure virtual keyboard
-if confirm "Enable Qt virtual keyboard for SDDM?"; then
-  if [ "$DRY_RUN" = false ]; then
-    log "Configuring virtual keyboard..."
-    sudo mkdir -p /etc/sddm.conf.d
-    echo "[General]
-InputMethod=qtvirtualkeyboard" | sudo tee /etc/sddm.conf.d/virtualkbd.conf >/dev/null
-  else
-    warn "(dry-run) Would write to /etc/sddm.conf.d/virtualkbd.conf"
-  fi
+if [ -f "/etc/sddm.conf.d/virtualkbd.conf" ] && grep -q "InputMethod=qtvirtualkeyboard" /etc/sddm.conf.d/virtualkbd.conf 2>/dev/null; then
+  log "Virtual keyboard already configured."
 else
-  warn "Skipping virtual keyboard configuration."
+  if confirm "Enable Qt virtual keyboard for SDDM?"; then
+    if [ "$DRY_RUN" = false ]; then
+      log "Configuring virtual keyboard..."
+      sudo mkdir -p /etc/sddm.conf.d
+      echo "[General]
+InputMethod=qtvirtualkeyboard" | sudo tee /etc/sddm.conf.d/virtualkbd.conf >/dev/null
+    else
+      warn "(dry-run) Would write to /etc/sddm.conf.d/virtualkbd.conf"
+    fi
+  else
+    warn "Skipping virtual keyboard configuration."
+  fi
 fi
-
 ### ----------------------------------
 ###  TPM & DOTFILES
 ### ----------------------------------
