@@ -1,4 +1,5 @@
 --target=~
 --ignore=.stowrc
 --ignore=DS_Store
---ignore=/wallpapers
+--ignore=wallpapers
+--ignore=install.sh
