@@ -156,6 +156,90 @@ if [ ${#missing_aur_pkgs[@]} -gt 0 ] && command -v paru &>/dev/null; then
   fi
 fi
 
+### ----------------------------------
+###  SDDM THEME SETUP
+### ----------------------------------
+
+log "Setting up SDDM theme..."
+
+### Clone SDDM Artemis theme
+if [ ! -d "/usr/share/sddm/themes/sddm-artemis" ]; then
+  if confirm "Clone SDDM Artemis theme?"; then
+    if [ "$DRY_RUN" = false ]; then
+      log "Cloning SDDM Artemis theme..."
+      sudo git clone --depth 1 https://github.com/ahmadmuqri0/sddm-artemis.git /usr/share/sddm/themes/sddm-artemis
+    else
+      warn "(dry-run) Would clone SDDM Artemis theme."
+    fi
+  else
+    warn "Skipping SDDM theme clone."
+  fi
+else
+  log "SDDM Artemis theme already exists."
+fi
+
+### Copy fonts if needed
+THEME_FONTS_DIR="/usr/share/sddm/themes/sddm-artemis/Fonts"
+if [ -d "$THEME_FONTS_DIR" ]; then
+  # Check if fonts are already copied
+  fonts_exist=true
+  for font in "$THEME_FONTS_DIR"/*; do
+    font_name=$(basename "$font")
+    if [ ! -f "/usr/share/fonts/$font_name" ]; then
+      fonts_exist=false
+      break
+    fi
+  done
+
+  if [ "$fonts_exist" = false ]; then
+    if confirm "Copy SDDM theme fonts to system fonts?"; then
+      if [ "$DRY_RUN" = false ]; then
+        log "Copying fonts..."
+        sudo cp -r "$THEME_FONTS_DIR"/* /usr/share/fonts/
+      else
+        warn "(dry-run) Would copy fonts to /usr/share/fonts/"
+      fi
+    else
+      warn "Skipping font installation."
+    fi
+  else
+    log "Theme fonts already installed."
+  fi
+else
+  warn "Font directory $THEME_FONTS_DIR not found — skipping font copy."
+fi
+
+### Configure SDDM theme
+if confirm "Configure SDDM to use Artemis theme?"; then
+  if [ "$DRY_RUN" = false ]; then
+    log "Setting SDDM theme configuration..."
+    echo "[Theme]
+Current=sddm-artemis" | sudo tee /etc/sddm.conf >/dev/null
+  else
+    warn "(dry-run) Would write to /etc/sddm.conf"
+  fi
+else
+  warn "Skipping SDDM theme configuration."
+fi
+
+### Configure virtual keyboard
+if confirm "Enable Qt virtual keyboard for SDDM?"; then
+  if [ "$DRY_RUN" = false ]; then
+    log "Configuring virtual keyboard..."
+    sudo mkdir -p /etc/sddm.conf.d
+    echo "[General]
+InputMethod=qtvirtualkeyboard" | sudo tee /etc/sddm.conf.d/virtualkbd.conf >/dev/null
+  else
+    warn "(dry-run) Would write to /etc/sddm.conf.d/virtualkbd.conf"
+  fi
+else
+  warn "Skipping virtual keyboard configuration."
+fi
+
+### ----------------------------------
+###  TPM & DOTFILES
+### ----------------------------------
+
 ### TPM INSTALL
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
   if confirm "Install Tmux Plugin Manager (TPM)?"; then
@@ -204,8 +288,9 @@ else
         warn "(dry-run) Would run: chsh -s $(command -v zsh)"
       fi
     fi
+  else
+    warn "Skipping shell change."
   fi
-  warn "Skipping shell change."
 fi
 
 log "Installation complete! 🚀"
