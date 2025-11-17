@@ -14,7 +14,7 @@ fi
 #  PACKAGES
 ##############################################
 ARCH_PACKAGES=(
-  sddm hyprland xorg-xwayland stow zsh fzf neovim
+  sddm hyprland xorg-xwayland kitty stow zsh fzf neovim
   qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg
   ttf-jetbrains-mono-nerd lazygit eza zoxide go npm
   noctalia-shell mpv nautilus xdg-desktop-portal-hyprland
@@ -39,6 +39,14 @@ banner() {
 
 confirm() {
   gum confirm "$1"
+}
+
+##############################################
+#  POPULATE USER DIRECTORY
+##############################################
+
+populate_user_dirs() {
+  xdg-user-dirs-update
 }
 
 ##############################################
@@ -97,8 +105,17 @@ install_aur() {
   fi
 }
 
-populate_user_dirs() {
-  xdg-user-dirs-update
+clone_wallpapers() {
+  log "Cloning wallpapers"
+
+  if [ ! -d "/home/muqri/Pictures/wallpapers" ]; then
+    if confirm "Clone wallpaper collection?"; then
+      git clone git@github.com:ahmadmuqri0/wallpapers.git \
+        /home/muqri/Pictures/wallpapers
+    fi
+  else
+    log "wallpapers already exists."
+  fi
 }
 
 setup_sddm_theme() {
@@ -203,12 +220,14 @@ change_shell() {
 
 banner
 
+populate_user_dirs
 check_pacman
 check_aur
 
 install_pacman
 install_aur
-populate_user_dirs
+
+clone_wallpapers
 
 setup_sddm_theme
 copy_sddm_fonts
