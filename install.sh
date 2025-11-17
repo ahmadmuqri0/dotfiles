@@ -108,10 +108,10 @@ install_aur() {
 clone_wallpapers() {
   log "Cloning wallpapers"
 
-  if [ ! -d "/home/muqri/Pictures/wallpapers" ]; then
+  if [ ! -d "$HOME/Pictures/wallpapers" ]; then
     if confirm "Clone wallpaper collection?"; then
       git clone git@github.com:ahmadmuqri0/wallpapers.git \
-        /home/muqri/Pictures/wallpapers
+        $HOME/Pictures/wallpapers
     fi
   else
     log "wallpapers already exists."
