@@ -17,7 +17,7 @@ ARCH_PACKAGES=(
   sddm hyprland xorg-xwayland kitty stow zsh fzf neovim
   qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg
   ttf-jetbrains-mono-nerd lazygit eza zoxide go npm
-  noctalia-shell mpv nautilus xdg-desktop-portal-hyprland
+  noctalia-shell mpv nautilus polkit-gnome xdg-desktop-portal-hyprland
   wl-clipboard tela-circle-icon-theme-all loupe cliphist
   nwg-look qt6ct gnome-software adw-gtk-theme
 )
