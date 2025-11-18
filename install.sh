@@ -19,7 +19,7 @@ ARCH_PACKAGES=(
   ttf-jetbrains-mono-nerd lazygit eza zoxide go npm
   noctalia-shell mpv nautilus polkit-gnome xdg-desktop-portal-hyprland
   wl-clipboard tela-circle-icon-theme-all loupe cliphist
-  nwg-look qt6ct gnome-software adw-gtk-theme
+  nwg-look qt6ct gnome-software adw-gtk-theme flatpak
 )
 
 AUR_PACKAGES=(python-pywalfox)
