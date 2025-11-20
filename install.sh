@@ -41,8 +41,10 @@ warn() { printf "\033[1;33m[!] %s\033[0m\n" "$1"; }
 err() { printf "\033[1;31m[!] %s\033[0m\n" "$1" >&2; }
 
 banner() {
+  echo
   gum style --foreground="#7dcfff" --border double --padding "1 2" \
     "ARTEMIS DOTFILES INSTALLER"
+  echo
 }
 
 confirm() {
