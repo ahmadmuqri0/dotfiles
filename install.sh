@@ -25,7 +25,7 @@ HYPRLAND_PACKAGES=(
 GNOME_PACKAGES=(
   stow zsh fzf neovim ttf-jetbrains-mono-nerd lazygit
   eza zoxide go npm tela-circle-icon-theme-all wl-clipboard
-  flatpak adw-gtk-theme gnome-shell # Added gnome-shell as an example base
+  flatpak adw-gtk-theme
 )
 
 AUR_PACKAGES=(python-pywalfox) #for hyprland
