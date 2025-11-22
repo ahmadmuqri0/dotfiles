@@ -16,3 +16,7 @@ alias fzn="fzf --preview='bat --color=always {}'"
 alias artisan="php artisan"
 
 alias mkdir="mkdir -pv"
+
+alias vm-list="virsh --connect qemu:///system list --all"
+alias vm-start="virsh --connect qemu:///system start"
+alias vm-shutdown="virsh --connect qemu:///system shutdown"

@@ -13,19 +13,17 @@ fi
 ##############################################
 #  PACKAGES
 ##############################################
-HYPRLAND_PACKAGES=(
-  sddm hyprland xorg-xwayland kitty stow zsh fzf neovim
-  qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg
-  ttf-jetbrains-mono-nerd lazygit eza zoxide go npm
-  noctalia-shell mpv nautilus polkit-gnome xdg-desktop-portal-hyprland
-  wl-clipboard tela-circle-icon-theme-all loupe cliphist
-  nwg-look qt6ct gnome-software adw-gtk-theme flatpak evince
-)
-
-GNOME_PACKAGES=(
-  stow zsh fzf neovim ttf-jetbrains-mono-nerd lazygit
+COMMON_PACKAGES=(
+  stow zsh fzf neovim tmux ttf-jetbrains-mono-nerd lazygit
   eza zoxide go npm tela-circle-icon-theme-all wl-clipboard
   flatpak adw-gtk-theme
+)
+
+HYPRLAND_PACKAGES=(
+  sddm hyprland kitty xorg-xwayland qt6-svg qt6-virtualkeyboard
+  qt6-multimedia-ffmpeg noctalia-shell mpv nautilus
+  polkit-gnome xdg-desktop-portal-hyprland loupe cliphist
+  nwg-look qt6ct gnome-software evince
 )
 
 AUR_PACKAGES=(python-pywalfox) #for hyprland
@@ -200,16 +198,6 @@ InputMethod=qtvirtualkeyboard" | sudo tee "$target" >/dev/null
   fi
 }
 
-install_tpm() {
-  if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-    if confirm "Install TPM?"; then
-      git clone https://github.com/tmux-plugins/tpm.git "$HOME/.tmux/plugins/tpm"
-    fi
-  else
-    log "TPM already installed."
-  fi
-}
-
 stow_dotfiles() {
   if confirm "Run 'stow .' to symlink dotfiles?"; then
     if ! stow common; then
@@ -249,13 +237,10 @@ banner
 CONFIG=$(select_config)
 log "Selected configuration: $CONFIG"
 
+ARCH_PACKAGES=("${COMMON_PACKAGES[@]}")
+
 if [ "$CONFIG" == "Hyprland" ]; then
-  ARCH_PACKAGES=("${HYPRLAND_PACKAGES[@]}")
-elif [ "$CONFIG" == "Gnome" ]; then
-  ARCH_PACKAGES=("${GNOME_PACKAGES[@]}")
-else
-  err "Invalid configuration selected. Exiting."
-  exit 1
+  ARCH_PACKAGES+=("${HYPRLAND_PACKAGES[@]}")
 fi
 
 if [ "$CONFIG" == "Hyprland" ]; then
@@ -285,7 +270,6 @@ if [ "$CONFIG" == "Hyprland" ]; then
 fi
 
 # General Steps (run for both)
-install_tpm
 stow_dotfiles
 change_shell
 
