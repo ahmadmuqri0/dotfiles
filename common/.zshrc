@@ -16,10 +16,6 @@ fi
 # Source/load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Add starship
-zinit ice from"gh-r" as"program" bpick"*starship*"; zinit light starship/starship
-eval "$(starship init zsh)"
-
 # Add zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
@@ -34,8 +30,8 @@ zinit snippet OMZP::command-not-found
 # Load completions
 autoload -U compinit && compinit
 
-zinit cdreplay -q
-
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # Keybindings
 bindkey -v
@@ -66,6 +62,4 @@ zstyle ":fzf-tab:complete:__zoxide-z:*" fzf-preview "ls --color $realpath"
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-
-# bun completions
-[ -s "/home/muqri/.bun/_bun" ] && source "/home/muqri/.bun/_bun"
+eval "$(starship init zsh)"
