@@ -1,0 +1,97 @@
+add_newline = false
+
+format = """$directory$git_branch$git_commit$git_state$git_metrics$git_status: """
+palette = "halcyon"
+
+right_format = """$all"""
+
+command_timeout = 1000
+
+[character]
+vimcmd_symbol = ''
+success_symbol = ''
+error_symbol = ''
+
+[directory]
+style = "color8"
+format = "[ $path ]($style)"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+[git_branch]
+format = '[$symbol$branch(:$remote_branch)]($style)'
+
+[git_commit]
+format = '[\($hash$tag\)]($style)'
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\)'
+
+[git_metrics]
+format = '([+$added]($added_style) )([-$deleted]($deleted_style))'
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style))'
+
+[palettes.nord]
+color0  = "#2e3440"
+color1  = "#3b4252"
+color2  = "#434c5e"
+color3  = "#4c566a"
+color4  = "#d8dee9"
+color5  = "#e5e9f0"
+color6  = "#eceff4"
+color7  = "#8fbcbb"
+color8  = "#88c0d0"
+color9  = "#81a1c1"
+color10 = "#5e81ac"
+
+red     = "#bf616a"
+orange  = "#d08770"
+yellow  = "#ebcb8b"
+green   = "#a3be8c"
+purple  = "#b48ead"
+
+
+[palettes.tokyonight]
+color0  = "#1a1b26"
+color1  = "#1f2335"
+color2  = "#24283b"
+color3  = "#292e42"
+color4  = "#c0caf5"
+color5  = "#a9b1d6"
+color6  = "#9aa5ce"
+color7  = "#7dcfff"
+color8  = "#73daca"
+color9  = "#7aa2f7"
+color10 = "#2ac3de"
+
+red     = "#f7768e"
+orange  = "#ff9e64"
+yellow  = "#e0af68"
+green   = "#9ece6a"
+purple  = "#bb9af7"
+
+[palettes.halcyon]
+color0  = "#171c28"
+color1  = "#1d2433"
+color2  = "#2f3b54"
+color3  = "#2f3b54"
+color4  = "#d7dce2"
+color5  = "#a2aabc"
+color6  = "#96a6cc"
+color7  = "#bae67e"
+color8  = "#5ccfe6"
+color9  = "#6679a4"
+color10 = "#5ccfe6"
+
+red     = "#ef6b73"
+orange  = "#ffae57"
+yellow  = "#ffcc66"
+green   = "#bae67e"
+purple  = "#c3a6ff"
