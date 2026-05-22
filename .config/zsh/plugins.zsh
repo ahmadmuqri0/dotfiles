@@ -12,7 +12,7 @@ _zplugin_load() {
    source "${plugin_path}/${2}.plugin.zsh"
 }
 
-zplugin_update() {
+zplugin-update() {
   for dir in "${ZPLUGINDIR}"/*/; do
     echo "Updating ${dir:t}..."
     git -C "$dir" pull --ff-only
