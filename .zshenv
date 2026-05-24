@@ -19,7 +19,7 @@ fi
 . "$HOME/.cargo/env"
 
 # ---------- PATH ----------
-export PATH="$PATH:$HOME/.local/bin:$HOME/.config/composer/vendor/bin:$HOME/.bun/bin:$HOME/go/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.config/composer/vendor/bin:$HOME/.bun/bin:$HOME/go/bin:$HOME/.opencode/bin:$HOME/.local/share/fnm:$HOME/.local/share/pnpm"
 
 # ---------- PAGER ----------
 export MANPAGER="bat -l man -p"

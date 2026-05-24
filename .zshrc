@@ -37,6 +37,3 @@ source "$CONFIGDIR/git.zsh"
 source "$CONFIGDIR/bindings.zsh"
 source "$CONFIGDIR/plugins.zsh"
 source "$CONFIGDIR/prompt.zsh"
-
-# opencode
-export PATH=/home/muqri/.opencode/bin:$PATH
