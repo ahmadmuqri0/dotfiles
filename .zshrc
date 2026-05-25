@@ -19,6 +19,7 @@ setopt NUMERIC_GLOB_SORT
 eval "$(zoxide init zsh)"
 
 # ---------- COMPLETION ----------
+fpath=($XDG_DATA_HOME/zsh/site-functions $fpath)
 autoload -Uz compinit
 compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
 zstyle ':completion:*' menu select
