@@ -18,6 +18,9 @@ setopt NUMERIC_GLOB_SORT
 # ---------- ZOXIDE ----------
 eval "$(zoxide init zsh)"
 
+# ---------- FNM ----------
+eval "$(fnm env --shell zsh)"
+
 # ---------- COMPLETION ----------
 fpath=($XDG_DATA_HOME/zsh/site-functions $fpath)
 autoload -Uz compinit
