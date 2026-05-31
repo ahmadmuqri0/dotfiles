@@ -23,11 +23,24 @@ Snacks.setup({
   bigfile = { enabled = true },
   explorer = { enabled = true },
   statuscolumn = { enabled = true },
-  picker = { enabled = true },
   scope = { enabled = true },
   scroll = { enabled = true },
   words = { enabled = true },
-
+  picker = {
+    enabled = true,
+    sources = {
+      files = {
+        hidden = true,
+        ignored = true,
+        exclude = { "node_modules", ".git", "vendor", ".svelte-kit" },
+      },
+      explorer = {
+        hidden = true,
+        ignored = true,
+        exclude = { "node_modules", ".git", "vendor", ".svelte-kit" },
+      },
+    },
+  },
   dashboard = {
     enabled = true,
     preset = {
