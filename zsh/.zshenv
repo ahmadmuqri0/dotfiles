@@ -11,12 +11,14 @@ export VISUAL="zed"
 # ---------- GPG ----------
 export GPG_TTY=$(tty)
 
-if grep -qi microsoft /proc/version 2>/dev/null; then
+if grep microsoft /proc/version 2>/dev/null; then
   stty icrnl
 fi
 
 # ---------- CARGO ----------
-. "$HOME/.cargo/env"
+if ! grep microsoft /proc/version 2>/dev/null; then
+  . "$HOME/.cargo/env"
+fi
 
 # ---------- PATH ----------
 export PATH="$PATH:$HOME/.local/bin:$HOME/.config/composer/vendor/bin:$HOME/.bun/bin:$HOME/go/bin:$HOME/.opencode/bin:$HOME/.local/share/fnm:$HOME/.local/share/pnpm"

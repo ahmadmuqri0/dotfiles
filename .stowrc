@@ -1,6 +1,1 @@
 --target=~
---ignore=.stowrc
---ignore=DS_Store
---ignore=wallpapers
---ignore=install.sh
---ignore=.config/nvim.bak
