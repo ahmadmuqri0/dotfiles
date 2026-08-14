@@ -29,8 +29,9 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # ---------- FUZZY FINDER ----------
-if [[ -f /usr/share/fzf/shell/key-bindings.zsh ]]; then
-  source /usr/share/fzf/shell/key-bindings.zsh
+if [[ -n "${commands[fzf-share]}" ]]; then
+    source "$(fzf-share)/key-bindings.zsh"
+    source "$(fzf-share)/completion.zsh"
 fi
 
 # ---------- CONFIG FILES ----------
