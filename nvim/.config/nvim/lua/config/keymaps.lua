@@ -1,21 +1,19 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
 local keymap = vim.keymap.set
 
--- Pack UI
-keymap("n", "<leader>p", "<cmd>Pack<CR>", { desc = "Open Pack UI" })
-
 -- UI2 messages
-keymap("n", "<leader>m", "<cmd>messages<CR>", { desc = "Open Full Message History" })
-keymap("n", "<leader>n", "g<", { desc = "Expand Message" })
+keymap("n", "<leader>mn", "<cmd>messages<CR>", { desc = "Open Full Message History" })
+keymap("n", "<leader>mm", "g<", { desc = "Expand Message" })
 
 -- Restart
 keymap("n", "<leader>re", "<cmd>restart<CR>", { desc = "Restart Neovim" })
 
 -- Search under cursor
-keymap("n", "<leader>rc", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<left><Left><Left>]],
-  { desc = "Replace word under cursor globally" })
+keymap(
+  "n",
+  "<leader>rc",
+  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<left><Left><Left>]],
+  { desc = "Replace word under cursor globally" }
+)
 
 -- Yank
 keymap({ "v", "x" }, "p", [["_dP]], { desc = "Paste without yanking" })

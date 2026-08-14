@@ -1,14 +1,8 @@
-vim.pack.add({
-  { src = "https://github.com/neovim/nvim-lspconfig" },
-})
-
-vim.lsp.config("*", {
-  capabilities = require("blink.cmp").get_lsp_capabilities(),
-})
-
 local servers = {
-  "lua_ls", "svelte", "vtsls"
+  "lua_ls",
+  "nixd",
 }
+
 vim.lsp.enable(servers)
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -54,30 +48,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       end
     end
 
-
-
-    local Snacks = require("snacks")
-    local keymap = vim.keymap.set
-
-    keymap("n", "K", vim.lsp.buf.hover, { buffer = buf, desc = "Hover" })
-    keymap("n", "<leader>cr", vim.lsp.buf.rename, { buffer = buf, desc = "Rename" })
-    keymap("n", "<leader>cR", Snacks.rename.rename_file, { buffer = buf, desc = "Rename file" })
-    keymap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { buffer = buf, desc = "Code action" })
-    keymap("n", "<leader>cc", vim.lsp.codelens.run, { buffer = buf, desc = "Run codelens" })
-    keymap({ "n", "x" }, "<M-o>", function() vim.lsp.buf.selection_range(1) end,
-      { buffer = buf, desc = "Expand selection (LSP)" })
-    keymap("x", "<M-i>", function() vim.lsp.buf.selection_range(-1) end,
-      { buffer = buf, desc = "Shrink selection (LSP)" })
-    keymap("n", "<leader>uh", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})) end,
-      { buffer = buf, desc = "Toggle inlay hints" })
-    keymap("n", "<leader>ul",
-      function()
-        local enabled = not vim.lsp.codelens.is_enabled()
-        vim.lsp.codelens.enable(enabled)
-        vim.notify("Codelens: " .. (enabled and "on" or "off"))
-      end, { buffer = buf, desc = "Toggle codelens" })
-    keymap("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, { buffer = buf, desc = "Prev diagnostic" })
-    keymap("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, { buffer = buf, desc = "Next diagnostic" })
+    -- Snacks
   end,
 })
 
