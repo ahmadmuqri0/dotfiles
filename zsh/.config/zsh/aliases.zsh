@@ -22,5 +22,7 @@ alias task='go-task'
 
 alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
 
+alias ns="nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history"
+
 # wsl
 alias clip='clip.exe'
