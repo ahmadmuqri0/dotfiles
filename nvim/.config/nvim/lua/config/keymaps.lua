@@ -80,6 +80,9 @@ keymap("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Com
 -- join line
 keymap("n", "J", "mzJ`z", { desc = "Join lines without moving cursor" })
 
+-- Lsp Info
+keymap("n", "<leader>cl", "<cmd>LSPInfo<CR>", { desc = "Open LSP info" })
+
 -- location list
 keymap("n", "<leader>xl", function()
   local success, err = pcall(vim.fn.getloclist(0, { winid = 0 }).winid ~= 0 and vim.cmd.lclose or vim.cmd.lopen)
