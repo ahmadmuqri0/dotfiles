@@ -1,0 +1,10 @@
+{
+  "workspace": {
+    "library": [
+      "/home/muqri/.config/hypr/stubs"
+    ]
+  },
+  "diagnostics": {
+    "globlas": ["hl"]
+  }
+}
