@@ -21,6 +21,9 @@ eval "$(zoxide init zsh)"
 # ---------- FNM ----------
 eval "$(fnm env --shell zsh)"
 
+# ---------- DEVENV ----------
+eval "$(devenv hook zsh)"
+
 # ---------- COMPLETION ----------
 fpath=($XDG_DATA_HOME/zsh/site-functions $fpath)
 autoload -Uz compinit
