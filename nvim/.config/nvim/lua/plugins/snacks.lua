@@ -25,6 +25,7 @@ return {
     scope = { enabled = true },
     scroll = { enabled = true },
     words = { enabled = true },
+    terminal = { enabled = true },
     picker = {
       enabled = true,
       sources = {
