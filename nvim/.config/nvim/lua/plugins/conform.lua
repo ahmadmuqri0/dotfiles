@@ -18,7 +18,9 @@ return {
       lua = { "stylua" },
       nix = { "nixfmt" },
       python = { "ruff" },
-      vue = { "eslint" },
+      javascript = { "prettier" },
+      typescript = { "prettier" },
+      vue = { "prettier" },
     },
   },
 }
