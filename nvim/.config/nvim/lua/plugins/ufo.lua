@@ -3,7 +3,6 @@ return {
   dependencies = { "kevinhwang91/promise-async" },
   event = "BufReadPost",
   init = function()
-    -- these must be set *before* the plugin loads, since UFO reads them on setup
     vim.o.foldenable = true
     vim.o.foldcolumn = "0"
     vim.o.foldlevel = 99
