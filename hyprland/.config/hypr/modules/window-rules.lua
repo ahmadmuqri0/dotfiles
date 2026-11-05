@@ -3,47 +3,47 @@
 --------------------------------
 
 local suppressMaximizeRule = hl.window_rule({
-	-- Ignore maximize requests from all apps. You'll probably like this.
-	name = "suppress-maximize-events",
-	match = { class = ".*" },
+  -- Ignore maximize requests from all apps. You'll probably like this.
+  name = "suppress-maximize-events",
+  match = { class = ".*" },
 
-	suppress_event = "maximize",
+  suppress_event = "maximize",
 })
 -- suppressMaximizeRule:set_enabled(false)
 
 hl.window_rule({
-	name = "fix-xwayland-drags",
-	match = {
-		class = "^$",
-		title = "^$",
-		xwayland = true,
-		float = true,
-		fullscreen = false,
-		pin = false,
-	},
+  name = "fix-xwayland-drags",
+  match = {
+    class = "^$",
+    title = "^$",
+    xwayland = true,
+    float = true,
+    fullscreen = false,
+    pin = false,
+  },
 
-	no_focus = true,
+  no_focus = true,
 })
 
 hl.window_rule({
-	name = "move-hyprland-run",
-	match = { class = "hyprland-run" },
+  name = "move-hyprland-run",
+  match = { class = "hyprland-run" },
 
-	move = "20 monitor_h-120",
-	float = true,
+  move = "20 monitor_h-120",
+  float = true,
 })
 
 hl.window_rule({
-	match = { class = ".*" },
-	opacity = "0.90",
+  match = { class = ".*" },
+  opacity = "0.90",
 })
 
 hl.window_rule({
-	match = { class = "firefox" },
-	opacity = "1",
+  match = { class = "firefox" },
+  opacity = "1",
 })
 
 hl.window_rule({
-	match = { title = "Parsec" },
-	opacity = "1",
+  match = { title = "Parsec" },
+  opacity = "1",
 })
