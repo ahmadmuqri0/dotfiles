@@ -26,10 +26,14 @@ hl.bind(mainMod .. " + ALT + F", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
 
+-- change window focus
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
+
+-- color picker
+hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("hyprpicker -a"))
 
 -- noctalia ipc
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(ipc .. "session lock"))
