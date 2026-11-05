@@ -3,7 +3,7 @@ local M = {}
 --- Window from which lazygit was launched. Files opened from inside lazygit
 --- (`e`) are edited here, so they reuse the focused pane instead of landing in
 --- a new tab or the first window. Paired with the `os.edit` override in
---- craftzdog/plugins/ui.lua.
+--- artemis/plugins/ui.lua.
 local origin_win = nil
 
 --- Opens lazygit, remembering the currently focused window as the target for
@@ -28,7 +28,7 @@ local nvim_server = 'nvim --server "$NVIM"'
 
 -- Refocus the launch pane from inside lazygit's terminal. `<Cmd>` runs in any
 -- mode, and long brackets keep the single/double quotes free of escaping.
-local focus_launch_pane = nvim_server .. [[ --remote-send '<Cmd>lua require("craftzdog.utils.lazygit").focus_origin()<CR>']]
+local focus_launch_pane = nvim_server .. [[ --remote-send '<Cmd>lua require("artemis.utils.lazygit").focus_origin()<CR>']]
 
 --- Builds a lazygit `os.edit` / `os.editAtLine` command (fish syntax) that opens
 --- the selected file in the pane lazygit was launched from rather than a new
