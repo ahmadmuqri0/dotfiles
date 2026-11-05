@@ -1,7 +1,7 @@
 add_newline = false
 
 format = """$directory$git_branch$git_commit$git_state$git_metrics$git_status: """
-palette = "tokyonight"
+palette = "ayu"
 
 right_format = """$all"""
 
@@ -57,7 +57,6 @@ yellow  = "#ebcb8b"
 green   = "#a3be8c"
 purple  = "#b48ead"
 
-
 [palettes.tokyonight]
 color0  = "#1a1b26"
 color1  = "#1f2335"
@@ -95,3 +94,22 @@ orange  = "#ffae57"
 yellow  = "#ffcc66"
 green   = "#bae67e"
 purple  = "#c3a6ff"
+
+[palettes.ayu]
+color0  = "#0a0e14"
+color1  = "#0b0e15"
+color2  = "#131721"
+color3  = "#1c212b"
+color4  = "#b3b1ad"
+color5  = "#c5cdd5"
+color6  = "#6c737a"
+color7  = "#95e6cb"
+color8  = "#59c2ff"
+color9  = "#cb9cf0"
+color10 = "#59c2ff"
+
+red     = "#f07178"
+orange  = "#ff8f40"
+yellow  = "#e6b450"
+green   = "#c2d94c"
+purple  = "#cb9cf0"
