@@ -22,7 +22,6 @@ alias task='go-task'
 
 alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
 
-alias ns="nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history"
+alias rebuild-switch='sudo nixos-rebuild switch --flake ~/Nix'
 
-# wsl
-alias clip='clip.exe'
+alias rebuild-test='sudo nixos-rebuild test --flake ~/Nix'
