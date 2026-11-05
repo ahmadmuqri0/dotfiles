@@ -1,0 +1,61 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "icon_theme": "Material Icon Theme",
+  "theme": "Halcyon",
+  "theme_overrides": {
+    "Halcyon": {
+      "border.variant": "#171c28",
+      "border": "#171c28",
+    },
+  },
+  "cli_default_open_behavior": "existing_window",
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+  "semantic_tokens": "combined",
+  "vim_mode": true,
+  "ui_font_size": 16.5,
+  "ui_font_weight": 600,
+  "buffer_font_size": 15.0,
+  "buffer_font_weight": 600,
+  "restore_on_startup": "launchpad",
+  "tab_size": 2,
+  "disable_ai": true,
+  "format_on_save": "on",
+  "vim": {
+    "highlight_on_yank_duration": 150,
+    "use_smartcase_find": true,
+    "use_system_clipboard": "always",
+    "toggle_relative_line_numbers": true,
+  },
+  "terminal": {
+    "font_family": "JetBrainsMono Nerd Font Mono",
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "git_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+    "button": false,
+  },
+  "outline_panel": {
+    "dock": "right",
+    "default_width": 360.0,
+  },
+  "project_panel": {
+    "dock": "left",
+    "default_width": 360.0,
+    "sticky_scroll": false,
+  },
+}
