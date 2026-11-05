@@ -39,6 +39,11 @@ hl.window_rule({
 })
 
 hl.window_rule({
-	match = { class = "brave-browser" },
+	match = { class = "firefox" },
+	opacity = "1",
+})
+
+hl.window_rule({
+	match = { title = "Parsec" },
 	opacity = "1",
 })
