@@ -9,6 +9,7 @@ vim.pack.add({
   { src = gh('nvim-mini/mini.icons') },
   { src = gh('folke/trouble.nvim') },
   { src = gh('nvim-lualine/lualine.nvim') },
+  { src = gh('akinsho/bufferline.nvim') },
   { src = gh('rachartier/tiny-cmdline.nvim') },
   -- Editor
   { src = gh('folke/which-key.nvim') },

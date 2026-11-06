@@ -187,6 +187,15 @@ map({
   },
 })
 
+-- Bufferline
+map({
+  { '<tab>', '<cmd>BufferLineCycleNext<cr>', desc = 'Next buffer' },
+  { '<s-tab>', '<cmd>BufferLineCyclePrev<cr>', desc = 'Prev buffer' },
+  { '<leader>bd', function() Snacks.bufdelete() end, desc = 'Delete buffer' },
+  { '<leader>bo', function() Snacks.bufdelete.other() end, desc = 'Delete other buffers' },
+  { '<leader>ba', function() Snacks.bufdelete.invisible() end, desc = 'Delete hidden buffers' },
+})
+
 -- Gitsigns
 map({
   {

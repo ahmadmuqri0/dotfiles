@@ -43,7 +43,6 @@ vim.opt.ttimeoutlen = 0 -- Key code timeout
 -- Behavior settings
 vim.opt.path:append('**') -- Include subdirectories in search
 vim.opt.wildignore:append({ '*/node_modules/*' }) -- Ignore node_modules
-vim.opt.mouse = '' -- Disable mouse support
 vim.opt.clipboard:append('unnamedplus') -- Use system clipboard
 
 -- Cursor settings

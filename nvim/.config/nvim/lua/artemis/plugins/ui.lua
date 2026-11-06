@@ -21,11 +21,6 @@ vim.cmd.colorscheme('ayu')
 require('mini.icons').setup()
 require('mini.icons').mock_nvim_web_devicons()
 
--- Custom tabline setup
-require('artemis.utils.tabline').setup()
-vim.o.showtabline = 1
-vim.o.tabline = "%!v:lua.require('artemis.utils.tabline').render()"
-
 require('snacks').setup({
   indent = { enabled = true },
   scroll = { enabled = false },
@@ -53,6 +48,17 @@ require('snacks').setup({
     theme = {
       activeBorderColor = { fg = 'WarningMsg', bold = true },
     },
+  },
+})
+
+require('bufferline').setup({
+  options = {
+    mode = 'buffers',
+    close_command = function(bufnr) Snacks.bufdelete(bufnr) end,
+    diagnostics = 'nvim_lsp',
+    always_show_bufferline = false,
+    show_buffer_close_icons = true,
+    show_close_icon = true,
   },
 })
 

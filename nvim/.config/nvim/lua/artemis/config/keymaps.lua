@@ -35,10 +35,8 @@ keymap.set('n', '<Leader>O', 'O<Esc>^Da', opts)
 -- Jumplist
 keymap.set('n', '<C-m>', '<C-i>', opts)
 
--- New tab
-keymap.set('n', 'te', ':tabedit<CR>')
-keymap.set('n', '<tab>', ':tabnext<CR>', opts)
-keymap.set('n', '<s-tab>', ':tabprev<CR>', opts)
+-- New buffer
+keymap.set('n', 'te', ':enew<CR>')
 -- Split window
 keymap.set('n', 'ss', ':split<Return>', opts)
 keymap.set('n', 'sv', ':vsplit<Return>', opts)
@@ -61,8 +59,6 @@ keymap.set('n', '<leader>yp', function() require('artemis.utils.editor').yank_ab
 keymap.set('v', '<leader>cc', ":<C-u>lua require('artemis.utils.editor').copy_as_codeblock()<CR>")
 
 keymap.set('n', '<leader>j', function() require('artemis.utils.editor').open_package_json() end, { desc = 'Open package.json in floating window' })
-
-keymap.set('n', '<leader>bd', function() require('artemis.utils.editor').delete_hidden_buffers() end, { desc = 'Delete hidden buffers' })
 
 keymap.set('n', '<A-k>', "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = 'Move Up' })
 keymap.set('n', '<A-j>', "<cmd>execute 'move .+' . v:count1<cr>==", { desc = 'Move Down' })
