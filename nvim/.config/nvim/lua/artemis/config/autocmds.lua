@@ -20,6 +20,14 @@ vim.api.nvim_create_autocmd('WinLeave', {
   pattern = '*',
   command = 'setlocal nocursorline',
 })
+-- Windows closed from inside another autocmd (e.g. snacks terminal/lazygit on
+-- TermClose) don't trigger WinEnter, so restore the cursorline afterwards.
+vim.api.nvim_create_autocmd('TermClose', {
+  group = cursorline_group,
+  callback = function()
+    vim.schedule(function() vim.wo.cursorline = true end)
+  end,
+})
 
 -- Highlight yanked text
 vim.api.nvim_create_autocmd('TextYankPost', {
