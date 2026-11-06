@@ -37,9 +37,14 @@ keymap.set('n', '<C-m>', '<C-i>', opts)
 
 -- New buffer
 keymap.set('n', 'te', ':enew<CR>')
+
 -- Split window
 keymap.set('n', 'ss', ':split<Return>', opts)
 keymap.set('n', 'sv', ':vsplit<Return>', opts)
+
+-- Split terminal
+keymap.set('n', 'st', ':15split | terminal<CR>', opts)
+
 -- Move window
 keymap.set('n', 'sh', '<C-w>h')
 keymap.set('n', 'sk', '<C-w>k')
