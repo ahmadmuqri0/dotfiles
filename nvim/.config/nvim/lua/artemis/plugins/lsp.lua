@@ -24,8 +24,7 @@ vim.lsp.enable({
   'lua_ls',
   'nixd',
   'vtsls',
-  -- "eslint",
-  -- "oxlint",
-  -- "cssls",
-  -- "tailwindcss",
+  'oxlint',
+  'cssls',
+  'tailwindcss',
 })
