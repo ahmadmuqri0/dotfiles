@@ -19,7 +19,7 @@ require('oil').setup({
       winblend = 0,
     },
     max_width = 200,
-    preview_split = 'below',
+    preview_split = 'auto',
   },
   preview_win = {
     update_on_cursor_moved = true,
