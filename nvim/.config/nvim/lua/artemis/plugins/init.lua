@@ -11,6 +11,7 @@ vim.pack.add({
   { src = gh('nvim-lualine/lualine.nvim') },
   { src = gh('akinsho/bufferline.nvim') },
   { src = gh('rachartier/tiny-cmdline.nvim') },
+  { src = gh('MeanderingProgrammer/render-markdown.nvim') },
   -- Editor
   { src = gh('folke/which-key.nvim') },
   { src = gh('nvim-treesitter/nvim-treesitter') },

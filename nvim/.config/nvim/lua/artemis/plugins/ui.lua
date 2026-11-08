@@ -33,6 +33,14 @@ require('snacks').setup({
   },
   notifier = { enabled = true },
   statuscolumn = { enabled = true },
+  terminal = {
+    win = {
+      keys = {
+        hide_slash = { '<C-/>', 'hide', desc = 'Hide Terminal', mode = 't' },
+        hide_underscore = { '<c-_>', 'hide', desc = 'which_key_ignore', mode = 't' },
+      },
+    },
+  },
   words = { enabled = true },
   lazygit = {
     enabled = true,
@@ -148,6 +156,8 @@ require('lualine').setup({
     },
   },
 })
+
+require('render-markdown').setup({})
 
 vim.diagnostic.config({
   underline = true,

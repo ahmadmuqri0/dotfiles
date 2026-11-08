@@ -27,4 +27,5 @@ vim.lsp.enable({
   'oxlint',
   'cssls',
   'tailwindcss',
+  'marksman',
 })
