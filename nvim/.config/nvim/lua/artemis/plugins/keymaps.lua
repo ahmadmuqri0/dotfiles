@@ -53,13 +53,6 @@ map({
 -- LSP
 local Snacks = require('snacks')
 map({
-  -- { "gd", vim.lsp.buf.definition, desc = "Goto Definition" },
-  -- {
-  -- 	"gr",
-  -- 	vim.lsp.buf.references,
-  -- 	desc = "References",
-  -- 	nowait = true,
-  -- },
   {
     'gI',
     function()
@@ -86,8 +79,6 @@ map({
     end,
     desc = 'Goto Source Definition / Implementation',
   },
-  -- { "gy", vim.lsp.buf.type_definition, desc = "Goto T[y]pe Definition" },
-  -- { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
   {
     'gd',
     function() Snacks.picker.lsp_definitions({ jump = { reuse_win = false } }) end,
@@ -129,8 +120,8 @@ map({
 map({
   { '<leader>cl', Snacks.picker.lsp_config, desc = 'Lsp Info' },
   { '<leader>cR', Snacks.rename.rename_file, desc = 'Rename File' },
-  { ';f', Snacks.picker.files, desc = 'Find files' },
-  { ';r', Snacks.picker.grep, desc = 'Live grep' },
+  { '<leader>f', Snacks.picker.files, desc = 'Find files' },
+  { '<leader>r', Snacks.picker.grep, desc = 'Live grep' },
   { ';;', Snacks.picker.resume, desc = 'Resume picker' },
   {
     '\\\\',
@@ -162,9 +153,9 @@ map({
   },
   { ';e', Snacks.picker.diagnostics, desc = 'Diagnostics' },
   { ';c', Snacks.picker.lsp_incoming_calls, desc = 'LSP incoming calls' },
-  { ';n', Snacks.picker.notifications, desc = 'Notifications' },
+  { '<leader>n', Snacks.picker.notifications, desc = 'Notifications' },
   {
-    ';g',
+    '<leader>gg',
     function() require('artemis.utils.lazygit').open() end,
     desc = 'Lazygit',
   },
@@ -183,6 +174,18 @@ map({
     '[[',
     function() Snacks.words.jump(-vim.v.count1) end,
     desc = 'Prev Reference',
+    mode = { 'n', 't' },
+  },
+  {
+    '<c-/>',
+    function() Snacks.terminal.focus(nil, { cwd = vim.fn.getcwd() }) end,
+    desc = 'Terminal (Root Dir)',
+    mode = { 'n', 't' },
+  },
+  {
+    '<c-_>',
+    function() Snacks.terminal.focus(nil, { cwd = vim.fn.getcwd() }) end,
+    desc = 'which_key_ignore',
     mode = { 'n', 't' },
   },
 })
