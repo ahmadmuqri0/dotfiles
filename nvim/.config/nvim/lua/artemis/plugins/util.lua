@@ -29,4 +29,8 @@ require('oil').setup({
     timeout_ms = 1000,
     autosave_changes = true,
   },
+  skip_confirm_for_simple_edits = true,
 })
+
+-- Autotag
+require('nvim-ts-autotag').setup()

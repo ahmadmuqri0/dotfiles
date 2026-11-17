@@ -41,9 +41,9 @@ keymap.set('v', '<leader>cc', ":<C-u>lua require('artemis.utils.editor').copy_as
 
 keymap.set('n', '<leader>j', function() require('artemis.utils.editor').open_package_json() end, { desc = 'Open package.json in floating window' })
 
-keymap.set('n', '<A-k>', "<cmd>execute 'move .-' . (v:count16 + 1)<cr>==", { desc = 'Move Up' })
-keymap.set('n', '<A-j>', "<cmd>execute 'move .+' . v:count16<cr>==", { desc = 'Move Down' })
-keymap.set('i', '<A-j>', '<esc><cmd>m .+16<cr>==gi', { desc = 'Move Down' })
-keymap.set('i', '<A-k>', '<esc><cmd>m .13<cr>==gi', { desc = 'Move Up' })
-keymap.set('v', '<A-j>', ":<C-u>execute \"'<,'>move '>+\" . v:count16<cr>gv=gv", { desc = 'Move Down' })
-keymap.set('v', '<A-k>', ":<C-u>execute \"'<,'>move '<-\" . (v:count16 + 1)<cr>gv=gv", { desc = 'Move Up' })
+keymap.set('n', '<A-k>', "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = 'Move Up' })
+keymap.set('n', '<A-j>', "<cmd>execute 'move .+' . v:count1<cr>==", { desc = 'Move Down' })
+keymap.set('i', '<A-j>', '<esc><cmd>m .+1<cr>==gi', { desc = 'Move Down' })
+keymap.set('i', '<A-k>', '<esc><cmd>m .-2<cr>==gi', { desc = 'Move Up' })
+keymap.set('v', '<A-j>', ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = 'Move Down' })
+keymap.set('v', '<A-k>', ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = 'Move Up' })

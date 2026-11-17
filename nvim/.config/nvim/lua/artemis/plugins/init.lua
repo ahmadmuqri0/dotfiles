@@ -20,6 +20,7 @@ vim.pack.add({
   { src = gh('jake-stewart/multicursor.nvim'), version = '1.0' },
   { src = gh('folke/todo-comments.nvim') },
   { src = gh('lewis6991/gitsigns.nvim') },
+  { src = gh('windwp/nvim-ts-autotag') },
   { src = gh('linrongbin16/gitlinker.nvim') },
   { src = gh('stevearc/conform.nvim') },
   -- LSP

@@ -107,6 +107,11 @@ map({
     desc = 'Code Action',
     mode = { 'n', 'x' },
   },
+  {
+    '<leader>d',
+    vim.diagnostic.open_float,
+    desc = 'Line Diagnostics',
+  },
   { '<leader>cr', vim.lsp.buf.rename, desc = 'Rename' },
   {
     '<leader>f',
@@ -120,8 +125,8 @@ map({
 map({
   { '<leader>cl', Snacks.picker.lsp_config, desc = 'Lsp Info' },
   { '<leader>cR', Snacks.rename.rename_file, desc = 'Rename File' },
-  { '<leader>f', Snacks.picker.files, desc = 'Find files' },
-  { '<leader>r', Snacks.picker.grep, desc = 'Live grep' },
+  { ';f', Snacks.picker.files, desc = 'Find files' },
+  { ';g', Snacks.picker.grep, desc = 'Live grep' },
   { ';;', Snacks.picker.resume, desc = 'Resume picker' },
   {
     '\\\\',

@@ -125,6 +125,7 @@ require('conform').setup({
     yaml = oxfmtFormatter,
     less = oxfmtFormatter,
     scss = oxfmtFormatter,
+    svelte = oxfmtFormatter,
     ['markdown.mdx'] = oxfmtFormatter,
     lua = { 'stylua' },
     sh = { 'shfmt' },
