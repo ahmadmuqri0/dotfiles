@@ -45,3 +45,8 @@ source "$CONFIGDIR/git.zsh"
 source "$CONFIGDIR/bindings.zsh"
 source "$CONFIGDIR/plugins.zsh"
 source "$CONFIGDIR/prompt.zsh"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/muqri/.lmstudio/bin"
+# End of LM Studio CLI section
+
