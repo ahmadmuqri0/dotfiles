@@ -2,42 +2,54 @@
 ui_scale = 1.0500000081956387
 
 [bar]
-order = [ "default" ]
+order = ["default"]
 
-    [bar.default]
-    background_opacity = 0.89999997988343239
-    capsule = true
-    capsule_radius = 8
-    center = [ "group:g1" ]
-    concave_edge_corners = false
-    end = [ "tray", "notifications", "clipboard", "volume", "battery", "group:g2", "session" ]
-    font_family = "Adwaita Sans"
-    margin_ends = 0
-    radius = 0
-    scale = 1.0000000074505806
-    shadow = false
-    start = [ "launcher", "workspaces", "media" ]
+[bar.default]
+background_opacity = 0.89999997988343239
+capsule = true
+capsule_radius = 8
+center = ["group:g1"]
+concave_edge_corners = true
+end = [
+  "tray",
+  "notifications",
+  "clipboard",
+  "volume",
+  "network",
+  "bluetooth",
+  "battery",
+  "group:g2",
+  "session",
+]
+font_family = "Google Sans Medium"
+margin_ends = 0
+radius = 0
+radius_bottom_left = 5
+radius_bottom_right = 5
+scale = 1.0000000074505806
+shadow = false
+start = ["launcher", "workspaces", "media"]
 
-        [[bar.default.capsule_group]]
-        accordion = false
-        accordion_direction = "end"
-        enabled = true
-        fill = "surface_variant"
-        id = "g1"
-        members = [ "weather", "clock" ]
-        opacity = 1.0
-        padding = 6.0
+[[bar.default.capsule_group]]
+accordion = false
+accordion_direction = "end"
+enabled = true
+fill = "surface_container"
+id = "g1"
+members = ["weather", "clock"]
+opacity = 1.0
+padding = 6.0
 
-        [[bar.default.capsule_group]]
-        accordion = false
-        accordion_direction = "end"
-        enabled = true
-        fill = "surface_variant"
-        id = "g2"
-        members = [ "cpu", "ram", "temp" ]
-        opacity = 1.0
-        padding = 6.0
-        radius = 8.0
+[[bar.default.capsule_group]]
+accordion = false
+accordion_direction = "end"
+enabled = true
+fill = "surface_container"
+id = "g2"
+members = ["cpu", "ram", "temp"]
+opacity = 1.0
+padding = 6.0
+radius = 8.0
 
 [calendar]
 enabled = true
@@ -48,62 +60,70 @@ auto_locate = true
 [lockscreen_widgets]
 enabled = false
 schema_version = 2
-widget_order = [ "lockscreen-login-box@eDP-1" ]
+widget_order = ["lockscreen-login-box@eDP-1"]
 
-    [lockscreen_widgets.grid]
-    cell_size = 16
-    major_interval = 4
-    visible = true
+[lockscreen_widgets.grid]
+cell_size = 16
+major_interval = 4
+visible = true
 
-    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
-    box_height = 196.0
-    box_width = 810.0
-    cx = 800.0
-    cy = 718.0
-    output = "eDP-1"
-    rotation = 0.0
-    type = "login_box"
+[lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+box_height = 196.0
+box_width = 810.0
+cx = 960.0
+cy = 898.0
+output = "eDP-1"
+placement_height = 1080.0
+placement_width = 1920.0
+rotation = 0.0
+type = "login_box"
 
-        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
-        background_color = "surface_variant"
-        background_opacity = 0.88
-        background_radius = 12.0
-        center_password_text = false
-        input_opacity = 1.0
-        input_radius = 6.0
-        layout = "regular"
-        show_caps_lock = true
-        show_keyboard_layout = true
-        show_login_button = true
-        show_media = true
-        show_session_buttons = true
-        show_unlock_hint = true
-        show_weather = true
+[lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+background_color = "surface_container"
+background_opacity = 0.88
+background_radius = 12.0
+center_password_text = false
+input_opacity = 1.0
+input_radius = 6.0
+layout = "regular"
+show_caps_lock = true
+show_keyboard_layout = true
+show_login_button = true
+show_media = true
+show_media_controls = true
+show_password_reveal = true
+show_session_buttons = true
+show_unlock_hint = true
+show_weather = true
 
 [osd]
 background_opacity = 0.89999997988343239
 
 [shell]
 avatar_path = "/home/muqri/.face.jpg"
-font_family = "Adwaita Sans"
+font_family = "Google Sans Medium"
 panel_anchor_bar = "default"
 polkit_agent = true
+umbriel_audio_provider_enabled = true
 
-    [shell.panel]
-    session_placement = "floating"
-    session_position = "center"
-    transparency_mode = "glass"
+[shell.greeter_sync]
+auto_sync = true
+
+[shell.panel]
+session_placement = "floating"
+session_position = "center"
+transparency_mode = "glass"
 
 [theme]
 builtin = "Catppuccin"
 community_palette = "Tokyo Night Moon"
 custom_palette = "halcyon"
 mode = "dark"
-source = "community"
+source = "custom"
 wallpaper_scheme = "muted"
 
-    [theme.templates]
-    builtin_ids = [ "gtk3", "gtk4", "hyprland", "kitty" ]
+[theme.templates]
+builtin_ids = ["gtk3", "gtk4", "umbriel", "kitty"]
 
 [wallpaper.default]
 path = "/home/muqri/Pictures/Wallpapers/astronaut.jpg"
@@ -115,7 +135,8 @@ path = "/home/muqri/Pictures/Wallpapers/astronaut.jpg"
 path = "/home/muqri/Pictures/Wallpapers/astronaut.jpg"
 
 [widget.battery]
-display_mode = "graphic"
+display_mode = "glyph"
+show_label = false
 
 [widget.brightness]
 show_label = false
@@ -127,8 +148,8 @@ format = "{:%a %d, %H:%M}"
 show_value = false
 
 [widget.launcher]
-custom_image = "/home/muqri/Pictures/NixOS.png"
-glyph = "nixos"
+custom_image = "/home/muqri/Pictures/cachyos.png"
+glyph = "cachyos"
 
 [widget.media]
 hide_when_no_media = true
