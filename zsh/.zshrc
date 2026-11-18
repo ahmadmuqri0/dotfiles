@@ -21,9 +21,6 @@ eval "$(zoxide init zsh)"
 # ---------- FNM ----------
 eval "$(fnm env --shell zsh)"
 
-# ---------- DEVENV ----------
-eval "$(devenv hook zsh)"
-
 # ---------- COMPLETION ----------
 fpath=($XDG_DATA_HOME/zsh/site-functions $fpath)
 autoload -Uz compinit
@@ -32,9 +29,9 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # ---------- FUZZY FINDER ----------
-if [[ -n "${commands[fzf-share]}" ]]; then
-    source "$(fzf-share)/key-bindings.zsh"
-    source "$(fzf-share)/completion.zsh"
+if [[ -f /usr/share/fzf/key-bindings.zsh ]]; then
+  source /usr/share/fzf/key-bindings.zsh
+  source /usr/share/fzf/completion.zsh
 fi
 
 # ---------- CONFIG FILES ----------
@@ -45,8 +42,3 @@ source "$CONFIGDIR/git.zsh"
 source "$CONFIGDIR/bindings.zsh"
 source "$CONFIGDIR/plugins.zsh"
 source "$CONFIGDIR/prompt.zsh"
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/home/muqri/.lmstudio/bin"
-# End of LM Studio CLI section
-
