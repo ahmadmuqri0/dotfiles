@@ -5,7 +5,7 @@
 files = []
 
 [include.optional]
-files = []
+files = ["noctalia.toml"]
 
 # ==============================================================================
 # environment
@@ -20,7 +20,11 @@ SDL_VIDEODRIVER = "wayland"
 
 [general]
 
-autostart = ["noctalia"]
+autostart = [
+  "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
+  "gnome-keyring-daemon --start --components=secrets",
+  "noctalia",
+]
 nvidia_sync_workaround = true
 
 # ==============================================================================
@@ -222,7 +226,7 @@ follows_mouse = "always"
 # Layout
 
 [layout]
-mode = "scrolling" # "scrolling", "dwindle", "master", or "stacking".
+mode = "scrolling"                   # "scrolling", "dwindle", "master", or "stacking".
 extent_presets = [0.333, 0.5, 0.667]
 
 # client_maximize = "column"
